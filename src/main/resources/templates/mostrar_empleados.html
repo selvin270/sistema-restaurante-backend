@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Empleados</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/estilos.css}">
+<link rel="icon" type="image/png" href="../static/images/favicon.png" th:src="@{images/favicon.png}">
+</head>
+<body>
+
+		<nav>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="tiendas">Tiendas</a></li>
+            <li><a href="empleados">Empleados</a></li>
+            <li><a href="productos">Productos</a></li>
+          </ul>
+        </nav>
+        
+	<div class="container">
+	  <img src="../static/images/logo.png" width="1000" th:src="@{images/logo.png}" class="mx-auto d-block" style="width:25%"/>
+	</div>
+	<div class="container">
+		<br>
+		<div>
+			<a href="/editar_empleado/0" class="btn btn-primary float-right" style="margin-right: 15px;">Agregar</a>
+		</div>
+		<h2 th:if="${list.isEmpty()}">No hay personas</h2>
+		<div th:if="${!list.isEmpty()}">
+			<h2>Empleados</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Tienda</th>
+						<th>Estado</th>
+						<th>Primer Nombre</th>
+						<th>Segundo Nombre</th>
+						<th>Primer Apellido</th>
+						<th>Segundo Apellido</th>
+						<th>Fecha Alta</th>
+						<th>Fecha Baja</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="empleado : ${list}">
+						<td th:text="${empleado.id_tienda}">
+						<td th:text="${empleado.id_estado}">
+						<td th:text="${empleado.p_nombre}">
+						<td th:text="${empleado.s_nombre}">
+						<td th:text="${empleado.p_apellido}">
+						<td th:text="${empleado.s_apellido}">
+						<td th:text="${empleado.fec_alta}">
+						<td th:text="${empleado.fec_baja}">
+						<td><a class="btn btn-warning" th:href="@{/editar_empleado/{id_empleado}(id_empleado=${empleado.id_empleado})}">Editar</a></td>
+						<td><a class="btn btn-danger" th:href="@{/borrar_empleado/{id_empleado}(id_empleado=${empleado.id_empleado})}">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

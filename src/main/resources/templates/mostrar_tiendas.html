@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tiendas</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/estilos.css}">
+<link rel="icon" type="image/png" href="../static/images/favicon.png" th:src="@{images/favicon.png}">
+</head>
+<body>
+	
+		<nav>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="tiendas">Tiendas</a></li>
+            <li><a href="empleados">Empleados</a></li>
+            <li><a href="productos">Productos</a></li>
+          </ul>
+        </nav>
+
+	<div class="container">
+	  <img src="../static/images/logo.png" width="1000" th:src="@{images/logo.png}" class="mx-auto d-block" style="width:25%"/>
+	</div>
+	<div class="container">
+		<br>
+		<div>
+			<a href="/editar_tienda/0" class="btn btn-primary float-right">Agregar</a>
+		</div>
+		<h2 th:if="${list.isEmpty()}">No hay tiendas</h2>
+		<div th:if="${!list.isEmpty()}">
+			<h2>Tiendas</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Dirección de Tienda</th>
+						<th>Teléfono de Tienda</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="tienda : ${list}">
+						<td th:text="${tienda.dir_tienda}">
+						<td th:text="${tienda.tel_tienda}">
+						<td><a class="btn btn-warning" th:href="@{/editar_tienda/{id_tienda}(id_tienda=${tienda.id_tienda})}">Editar</a></td>
+						<td><a class="btn btn-danger" th:href="@{/borrar_tienda/{id_tienda}(id_tienda=${tienda.id_tienda})}">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

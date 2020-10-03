@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Empleados</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/estilos.css}">
+<link rel="icon" type="image/png" href="../static/images/favicon.png" th:src="@{images/favicon.png}">
+</head>
+<body>
+
+		<nav>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="tiendas">Tiendas</a></li>
+            <li><a href="empleados">Empleados</a></li>
+            <li><a href="productos">Productos</a></li>
+          </ul>
+        </nav>
+
+	<div class="container">
+		<br>
+		<h2>Agregar Empleado</h2>
+		<form action="#" th:action="@{/nuevo_empleado}" th:object="${empleado}" method="post" style="margin-bottom:50px;">
+		
+		<input type="hidden" th:field="*{id_empleado}" name="id_empleado" id="id_empleado">
+		
+			<div class="form-group">
+				<label for="nombre">Tienda</label> <input type="text"
+					class="form-control" id="id_tienda" th:field="*{id_tienda}" name="id_tienda">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Estado</label> <input type="text"
+					class="form-control" id="id_estado" th:field="*{id_estado}" name="id_estado">
+			</div>
+		
+			<div class="form-group">
+				<label for="nombre">Primer Nombre</label> <input type="text"
+					class="form-control" id="p_nombre" th:field="*{p_nombre}" name="p_nombre">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Segundo Nombre</label> <input type="text"
+					class="form-control" id="s_nombre" th:field="*{s_nombre}" name="s_nombre">
+			</div>
+
+			<div class="form-group">
+				<label for="nombre">Primer Apellido</label> <input type="text"
+					class="form-control" id="p_apellido" th:field="*{p_apellido}" name="p_apellido">
+			</div>
+
+			<div class="form-group">
+				<label for="nombre">Segundo Apellido</label> <input type="text"
+					class="form-control" id="s_apellido" th:field="*{s_apellido}" name="s_apellido">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Fecha Alta</label> <input type="date"
+					class="form-control" id="fec_alta" th:field="*{fec_alta}" name="fec_alta">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Fecha Baja</label> <input type="date"
+					class="form-control" id="fec_baja" th:field="*{fec_baja}" name="fec_baja">
+			</div>
+			
+			<button type="submit" class="btn btn-success">Guardar</button>
+		</form>
+	</div>
+</body>
+</html>

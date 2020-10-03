@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tiendas</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/estilos.css}">
+<link rel="icon" type="image/png" href="../static/images/favicon.png" th:src="@{images/favicon.png}">
+</head>
+<body>
+
+		<nav>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="tiendas">Tiendas</a></li>
+            <li><a href="empleados">Empleados</a></li>
+            <li><a href="productos">Productos</a></li>
+          </ul>
+        </nav>
+
+	<div class="container">
+		<br>
+		<h2>Agregar Tienda</h2>
+		<form action="#" th:action="@{/nueva_tienda}" th:object="${tienda}" method="post">
+		
+		<input type="hidden" th:field="*{id_tienda}" name="id_tienda" id="id_tienda">
+		
+			<div class="form-group">
+				<label for="nombre">Dirección de Tienda</label> <input type="text"
+					class="form-control" id="dir_tienda" th:field="*{dir_tienda}" name="dir_tienda">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Teléfono de Tienda</label> <input type="text"
+					class="form-control" id="tel_tienda" th:field="*{tel_tienda}" name="tel_tienda">
+			</div>
+			
+			<button type="submit" class="btn btn-success">Guardar</button>
+		</form>
+	</div>
+</body>
+</html>
